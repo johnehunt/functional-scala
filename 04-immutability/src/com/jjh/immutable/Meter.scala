@@ -1,6 +1,6 @@
 package com.jjh.immutable
 
-case class Meter(value: Double) extends AnyVal {
+case class Meter(value: Double) {
 
   def +(m: Meter) : Meter = Meter(value + m.value)
   def -(m: Meter) : Meter = Meter(value - m.value)
