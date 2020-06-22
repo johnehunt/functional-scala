@@ -4,29 +4,24 @@ import java.io.FileNotFoundException
 
 import scala.io.Source
 
-/**
- * Older functional style
- */
-object ExceptionCatchingApp extends App {
+object ExceptionCatchingApp2 extends App {
 
   import scala.util.control.Exception
 
   // Set up exception handling
   val fileCatch =
     Exception.catching(
-      classOf[FileNotFoundException],
-      classOf[RuntimeException])
+      classOf[FileNotFoundException])
       .withApply {
-        e =>
-          e.printStackTrace()
-          "File Problem" // provides a default value to return
+        e => throw new RuntimeException("problem", e)
       }
 
   // Read from file
-  val content = fileCatch {
+  val content = fileCatch.opt {
     Source.fromFile("test.txt").getLines.mkString("\n")
   }
 
-  println(content)
+  // Check for success or failure
+  println(content.getOrElse("File Not Found"))
 
 }
