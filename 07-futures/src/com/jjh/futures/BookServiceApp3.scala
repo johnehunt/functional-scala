@@ -9,15 +9,17 @@ object BookServiceApp3 extends App {
 
   Future {
     BookService.getBook("123")
-  }.map(println)
+  }.map { b => b.title } .foreach(println)
 
   println("Press Enter to continue")
   scala.io.StdIn.readLine()
 
   Future {
     BookService.getBook("999")
-  }.recoverWith { case _: Exception => Future {Book("not a book", "Anon", 0.0) }
-  }.map(println)
+  }.recoverWith { case _: Exception => Future {
+    Book("not a book", "Anon", 0.0)
+  }
+  }.foreach(println)
 
   println("Press Enter to terminate")
   scala.io.StdIn.readLine()
