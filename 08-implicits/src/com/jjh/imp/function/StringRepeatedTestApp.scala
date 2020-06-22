@@ -1,14 +1,22 @@
 package com.jjh.imp.function
 
+import scala.annotation.tailrec
+
 class StringRepeated(original: String) {
+
   def repeat(times: Int): String = {
+
+    @tailrec
     def multiply(times: Int, accumulated: String): String = {
       if (times > 1) multiply(times - 1, accumulated + original)
       else original + accumulated
     }
+
     multiply(times, "")
   }
 
+  // Conversion method to convert
+  // a String into a String Repeated type
   implicit def string2repeated(x: String): StringRepeated = new StringRepeated(x)
 }
 
