@@ -22,13 +22,13 @@ object FactorialFutureApp extends App {
 
   // Single Future
   Future {
-    Thread.sleep(1000);
+    Thread.sleep(1000)
     factorial(n = 5)
   }.map(println)
 
   // Single Future with failure handling
   Future {
-    Thread.sleep(1000);
+    Thread.sleep(1000)
     factorial(n = -15)
   } onComplete {
     case Success(value) => println(s"Success : $value")
@@ -47,7 +47,8 @@ object FactorialFutureApp extends App {
   val f3 = Future {
     Thread.sleep(2000)
     factorial(n = -1)
-  }.recoverWith { case e: Exception => Future {0}
+  }.recoverWith {
+    case _: Exception => Future {0}
   }
   val all = Future.sequence(Seq(f1, f2, f3))
   // Now get a List(10, 20) as a result
