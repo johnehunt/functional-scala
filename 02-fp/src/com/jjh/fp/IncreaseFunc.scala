@@ -2,9 +2,9 @@ package com.jjh.fp
 
 object IncreaseFunc extends App {
 
-  // val increase = (x: Int) => x + 1
-  var increase: Function1[Int, Int] = (x: Int) => x + 1
-
+  // var increase: Function1[Int, Int] = (x: Int) => x + 1
+  // var increase: Int => Int = (x: Int) => x + 1
+  var increase = (x: Int) => x + 1 // Commonly used short hand form
 
   println(s"increase: $increase")
   println(s"increase(5): ${increase(5)}")
@@ -17,6 +17,5 @@ object IncreaseFunc extends App {
   increase = (x: Int) => x + 99
   val y = increase(4)
   println("2nd Increased y: " + y)
-
 
 }
