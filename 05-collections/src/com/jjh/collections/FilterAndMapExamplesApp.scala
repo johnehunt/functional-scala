@@ -35,8 +35,10 @@ object FilterAndMapExamplesApp extends App {
   val sum3 = numbers.sum
   println(s"numbers.sum: $sum3")
 
-  val flattenedList = List(Array(1, 2, 3), Array(4, 5, 6)).flatten
-  println(s"flattened list $flattenedList")
+  val mylist = List(List(1, 2, 3), List(4, 5, 6))
+  println(s"mylist: $mylist")
+  val flattenedList = mylist.flatten
+  println(s"flattenedList: $flattenedList")
 
   // Apply map function to elements and list then flatten the result
   val contents = List(Array(1, 2, 3), Array(4, 5, 6))
