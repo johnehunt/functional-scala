@@ -14,7 +14,7 @@ class Event(val name: String,
     case None => println("No Date")
   }
 
-  def printDate2: Unit = println(date getOrElse "No Date")
+  def printDate2(): Unit = println(date getOrElse "No Date")
 
   override def toString: String = s"Event($name, $date, $state)"
 }
@@ -32,7 +32,7 @@ object EventTestApp extends App {
   val e1 = Event.create("Trigger")
   println(e1)
   e1.printDate()
-  e1.printDate2
+  e1.printDate2()
 
   val e2 = Event create("Open", new Date(), "Waiting")
   println(e2)

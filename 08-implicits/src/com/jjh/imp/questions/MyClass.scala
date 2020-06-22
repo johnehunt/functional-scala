@@ -1,7 +1,7 @@
 package com.jjh.imp.questions
 
 class MyClass {
-  def something = ???
+  def something:Unit = ???
   def doSomething(s: String): Int = ???
 }
 

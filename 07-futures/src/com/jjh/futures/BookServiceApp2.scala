@@ -12,7 +12,7 @@ object BookServiceApp2 extends App {
     BookService.getBook("123")
     // BookService.getBook("999")
   } recoverWith {
-    case e: Exception => Future {Book("not a book", "Anon", 0.0)}
+    case _: Exception => Future {Book("not a book", "Anon", 0.0)}
   }
 
   // Allow us to specify the max wait time in seconds

@@ -6,8 +6,8 @@ trait Product extends Immutable {
   val price: Double
 }
 
-case class Version(val number: Int) extends Immutable {
-  override def toString = "v" + number
+case class Version(number: Int) extends Immutable {
+  override def toString: String = "v" + number
 
   def next: Version = copy(number + 1)
 }

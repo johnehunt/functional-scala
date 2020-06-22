@@ -9,7 +9,7 @@ object ContextBoundsExampleApp extends App {
     if (a < b) a else b
   }
 
-  implicit val ordering = Ordering.by((p: Person) => p.age)
+  implicit val ordering: Ordering[Person] = Ordering.by((p: Person) => p.age)
 
   val p1 = Person("John", 55)
   val p2 = Person("Phoebe", 23)
