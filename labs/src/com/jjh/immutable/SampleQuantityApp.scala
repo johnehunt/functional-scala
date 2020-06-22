@@ -10,8 +10,11 @@ object SampleQuantityApp extends App {
   println(s"q3 = $q3")
 
   println(s"q2 - q1 = ${q2 - q1}")
+  println(s"q2 - 3 = ${q2 - 3}")
   println(s"q2 * q1 = ${q2 * q1}")
+  println(s"q2 * 2 = ${q2 * 2}")
   println(s"q2 / q1 = ${q2 / q1}")
+  println(s"q2 / 2 = ${q2 /2}")
 
   println(s"q2 == q1 = ${q2 == q1}")
   println(s"q2 != q1 = ${q2 != q1}")
