@@ -17,7 +17,7 @@ object MultipleFuturesApp extends App {
   val f3 = Future{Thread.sleep(1000); 10}
   val f4 = Future{Thread.sleep(2000); 20}
   val all2 = Future.sequence(Seq(f1, f2))
-  // Wait for the futures to complete before continuingn
+  // Wait for the futures to complete before continuing
   val r = Await.result(all2, 5.seconds)
   println(s"result; $r")
 }
