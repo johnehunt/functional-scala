@@ -2,6 +2,8 @@ package com.jjh.futures
 
 import com.jjh.book._
 
+import scala.util.{Failure, Success}
+
 object BookServiceApp2 extends App {
 
   import scala.concurrent._
@@ -13,14 +15,17 @@ object BookServiceApp2 extends App {
     // BookService.getBook("999")
   } recoverWith {
     case _: Exception => Future {Book("not a book", "Anon", 0.0)}
-  }
+  } foreach(println)
+
+  println("Press Enter to terminate")
+  scala.io.StdIn.readLine()
 
   // Allow us to specify the max wait time in seconds
   import scala.concurrent.duration._
 
-  val book = Await.result(future, 2.seconds)
-
-  // print the result of awaiting
-  println(s"Book: $book")
+//  val book = Await.result(future, 2.seconds)
+//
+//  // print the result of awaiting
+//  println(s"Book: $book")
 
 }

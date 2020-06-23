@@ -7,7 +7,6 @@ object BookServiceApp extends App {
   import ExecutionContext.Implicits.global
   import scala.util.{Success, Failure}
 
-
   val future = Future {
     BookService.getBook("123")
     // BookService.getBook("999")

@@ -5,7 +5,7 @@ object LazyListApp extends App {
   // Post Scala 2.13
   // Use LazyList (which is fully lazy) instead of Stream (which has a lazy tail only)
 
-  val lazyList = 3 #:: 2#:: 4 #:: LazyList.empty
+  val lazyList = 3 #:: (2 * 6) #:: 4 #:: LazyList.empty
   println(lazyList) // Not computed
   lazyList.foreach(println _)
   println(lazyList) // Fully evaluated

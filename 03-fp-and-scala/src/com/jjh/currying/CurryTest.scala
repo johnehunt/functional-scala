@@ -19,6 +19,10 @@ class CurryTest {
   def plusTwo(y: Int): Int = sum(2)(y)
   def plusTwoS(y: Int): Int => Int = sum(2)_
   def plusTwoRS: Int => Int = sum(2)
+
+  def largeSum(x: Int, y: Int)(z: Int, a: Int): Int = {
+    x + y + z + a
+  }
 }
 
 object CurryTest extends App {
@@ -29,4 +33,7 @@ object CurryTest extends App {
 
   val plusOne = test.sum(1)_
   println(plusOne(10))
+
+  val func = test.largeSum(1, 2)_
+  println(func(3, 4))
 }

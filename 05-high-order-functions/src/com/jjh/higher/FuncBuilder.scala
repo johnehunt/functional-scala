@@ -7,6 +7,10 @@ object FuncBuilder {
     func
   }
 
+  type IntFunc = Int => Int
+
+  val builder: Int => IntFunc = (x: Int) => (y: Int) => x + y
+
 }
 
 object FuncBuilderApp extends App {

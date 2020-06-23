@@ -9,7 +9,7 @@ trait Product extends Immutable {
 case class Version(number: Int) extends Immutable {
   override def toString: String = "v" + number
 
-  def next: Version = copy(number + 1)
+  def next: Version = Version(number + 1)
 }
 
 case class Invoice[T <: Product](id: Int,
@@ -18,9 +18,9 @@ case class Invoice[T <: Product](id: Int,
                                  version: Version = Version(0)) extends Immutable {
   def total: Double = contents.map(_.price).sum
 
-  def +(p: T): Invoice[T] = Invoice(id, name, p :: contents, version.next)
+  def +(p: T): Invoice[T] = copy(contents = p :: contents, version = version.next)
 
-  def -(p: T): Invoice[T] = Invoice(id, name, contents diff List(p), version.next)
+  def -(p: T): Invoice[T] = copy(contents = contents diff List(p), version = version.next)
 }
 
 case class Book(title: String,

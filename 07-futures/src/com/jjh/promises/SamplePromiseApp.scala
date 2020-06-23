@@ -29,7 +29,7 @@ object SamplePromiseApp extends App {
   }
 
   // Sleep for 1 second to simulate processing
-  print("Processing ...")
+  println("Processing ...")
   Thread.sleep(1000)
 
   // Supply a result to the promise
